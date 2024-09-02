@@ -7,13 +7,13 @@ const PStyled = styled.p`
     margin-left: 5px;
     margin-top: 0;
 
-    &:hover{
+    &:hover {
         color: orange;
     }
-`
+`;
 
 function Information(props) {
-    return <PStyled>{props.text}</PStyled>
+    return <PStyled>{props.text}</PStyled>;
 }
 
 export default Information;

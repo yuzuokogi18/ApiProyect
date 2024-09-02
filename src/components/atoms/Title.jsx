@@ -7,13 +7,13 @@ const H1Styled = styled.h1`
     color: #f7f3f3;
     margin-bottom: 10px;
 
-    &:hover{
+    &:hover {
         color: orange;
     }
-`
+`;
 
 function Title(props) {
-    return <H1Styled>{props.text}</H1Styled>
+    return <H1Styled>{props.text}</H1Styled>;
 }
 
-export default Title
+export default Title;

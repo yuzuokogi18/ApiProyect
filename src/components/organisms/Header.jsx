@@ -12,7 +12,7 @@ const HeaderStyled = styled.header`
 
 function Header() {
     return <HeaderStyled>
-        <TitleHeader text="The Rick And Morty API"></TitleHeader>
+        <TitleHeader text="DRAGONBALL API"></TitleHeader>
     </HeaderStyled>
 }
 

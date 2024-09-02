@@ -5,10 +5,10 @@ const ImgStyled = styled.img`
     width: 100%;
     height: 100%;
     margin-bottom: 20px;
-`
+`;
 
 function Imagen(props) {
-    return <ImgStyled src={props.src}  alt=""></ImgStyled>
+    return <ImgStyled src={props.src} alt={props.alt} />;
 }
 
 export default Imagen;

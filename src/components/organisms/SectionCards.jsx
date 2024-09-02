@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Cards from "../molecules/Cards";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const SectionStyled = styled.section`
     width: 90%;
@@ -17,45 +17,36 @@ const DivStyled = styled.div`
 `;
 
 function SectionCards() {
-    const [objects, setObjects] = useState([]);
+    const [characters, setCharacters] = useState([]);
 
-    if(true){
-        fetch('https://rickandmortyapi.com/api/character')
-        .then(response => {
-            if(response.ok){
-                return response.json();
-            }
-        })
-        .then(data =>{
-            setObjects(data.results);
-        })
-        .catch(error=> {
-            console.log(error)
-        })
-
-    }
+    useEffect(() => {
+        fetch('https://dragonball-api.com/api/characters?limit=10')
+            .then(response => response.json())
+            .then(data => setCharacters(data.items))
+            .catch(error => console.log(error));
+    }, []);
 
     return (
-    <>
         <DivStyled>
-                <SectionStyled>
+            <SectionStyled>
                 {
-                    objects.map(item =>
+                    characters.map(character =>
                         <Cards
-                        key={item.name}
-                        name={item.name}
-                        src={item.image}
-                        status={item.status}
-                        species={item.species}
-                        origin={item.origin.name}
-                        location={item.location.name}
-                        ></Cards>
+                            key={character.id}
+                            id={character.id}
+                            name={character.name}
+                            image={character.image}
+                            ki={character.ki}
+                            maxKi={character.maxKi}
+                            race={character.race}
+                            gender={character.gender}
+                            affiliation={character.affiliation}
+                        />
                     )
                 }
-                </SectionStyled>
+            </SectionStyled>
         </DivStyled>
-        </>
-    )
+    );
 }
 
 export default SectionCards;
